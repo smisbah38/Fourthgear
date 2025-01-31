@@ -1,0 +1,90 @@
+@import url("https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&family=Prata&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html,
+body {
+  margin: 0 0; /* Adjust horizontal margins */
+  padding: 0;
+  box-sizing: border-box;
+  overflow: visible;
+  /* overflow-x: hidden; Prevent horizontal scrolling */
+  background-color: #171717;
+}
+
+a.active hr {
+  display: block;
+}
+
+* {
+  font-family: Outfit;
+}
+
+.prata-regular {
+  font-family: "Prata", serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+/* Entire scrollbar */
+::-webkit-scrollbar {
+  width: 12px; /* Narrow scrollbar */
+}
+
+/* Thumb (the draggable part) */
+::-webkit-scrollbar-thumb {
+  background-color: #888; /* Gray color */
+  border-radius: 10px; /* Rounded edges */
+}
+
+/* Track (background of the scrollbar) */
+::-webkit-scrollbar-track {
+  background-color: #f0f0f0; /* Light background */
+}
+
+/*Swiper Customization */
+.swiper-button-next,
+.swiper-button-prev {
+  color: white; /* Change the arrow color */
+  background-color: rgba(
+    0,
+    0,
+    0,
+    0.5
+  ); /*Adding background effect to make the arrows more visible */
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+}
+
+/* Adding hover effect */
+.swiper-button-next:hover,
+.swiper-button-prev:hover {
+  background-color: rgba(255, 255, 255, 0.8); /* Light background on hover */
+  color: black; /* Change arrow color on hover */
+}
+
+/* Default pagination dots */
+.swiper-pagination-bullet {
+  background-color: rgba(255, 255, 255, 0.5); /* Change default dot color */
+  width: 12px; /* Adjust size */
+  height: 12px;
+  border-radius: 50%; /* Make it circular */
+  margin: 0 5px; /* Spacing between dots */
+}
+
+/* Active pagination dot */
+.swiper-pagination-bullet-active {
+  background-color: white; /* Highlighted dot color */
+  transform: scale(1.2); /* Slightly larger for the active dot */
+  transition: transform 0.3s ease, background-color 0.3s ease; /* Smooth transition */
+}
+
+@media (max-width: 768px) {
+  /* Adjust breakpoint as needed */
+  ::-webkit-scrollbar {
+    display: none; /* Hides the scrollbar on mobile devices */
+  }
+}
