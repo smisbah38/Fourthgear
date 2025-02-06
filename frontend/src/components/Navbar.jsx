@@ -1,8 +1,8 @@
 import React, { useContext, useState } from "react";
 import { assets } from "../assets/assets";
-import { NavLink, Link, useLocation } from "react-router-dom";
+import { NavLink, Link, useLocation, useNavigate } from "react-router-dom";
 import { ShopContext } from "../context/ShopContext";
-import { FaUser, FaSignOutAlt, FaBars } from "react-icons/fa";
+import { FaUser, FaSignOutAlt, FaBars, FaArrowLeft } from "react-icons/fa";
 
 const Navbar = () => {
   const [visible, setVisible] = useState(false);
@@ -18,6 +18,7 @@ const Navbar = () => {
   };
 
   const location = useLocation();
+  const navigateBack = useNavigate(); // For handling back button
 
   return (
     <div className="sticky top-0 z-50 flex items-center justify-between py-5 font-medium bg-neutral-900 px-8">
@@ -115,17 +116,18 @@ const Navbar = () => {
         }`}
       >
         <div className="flex flex-col text-gray-600">
-          <div
-            onClick={() => setVisible(false)}
-            className="flex items-center gap-4 p-3"
+          {/* ✅ Fixed Back Button: Closes sidebar & navigates back */}
+          <button
+            onClick={() => {
+              setVisible(false); // Close sidebar
+              navigateBack(-1); // Navigate to previous page
+            }}
+            className="flex items-center gap-4 p-3 cursor-pointer"
           >
-            <img
-              src={assets.dropdown_icon}
-              alt="Back"
-              className="h-4 rotate-180"
-            />
+            <FaArrowLeft className="text-xl" />
             <p>Back</p>
-          </div>
+          </button>
+
           <NavLink
             onClick={() => setVisible(false)}
             className={({ isActive }) =>

@@ -5,8 +5,8 @@ import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 import "swiper/css/autoplay";
+import { FiChevronLeft, FiChevronRight } from "react-icons/fi"; // Importing icons
 
-// Import images from assets folder
 import hero_img from "../assets/hero_img.png";
 import hero_img2 from "../assets/hero_img2.jpg";
 import hero_img3 from "../assets/hero_img3.jpg";
@@ -78,22 +78,22 @@ const Hero = () => {
       {/* Navigation Arrows for Large Screens */}
       <div className="hidden md:flex absolute top-1/2 transform -translate-y-1/2 left-4 z-20">
         <button className="swiper-button-prev-custom-lg cursor-pointer text-white bg-gray-800 bg-opacity-80 p-3 rounded-full text-2xl shadow-lg hover:bg-gray-700 transition-all">
-          ◀
+          <FiChevronLeft size={24} />
         </button>
       </div>
       <div className="hidden md:flex absolute top-1/2 transform -translate-y-1/2 right-4 z-20">
         <button className="swiper-button-next-custom-lg cursor-pointer text-white bg-gray-800 bg-opacity-80 p-3 rounded-full text-2xl shadow-lg hover:bg-gray-700 transition-all">
-          ▶
+          <FiChevronRight size={24} />
         </button>
       </div>
 
       {/* Custom Navigation Arrows for Small Screens */}
       <div className="md:hidden absolute bottom-12 left-1/2 transform -translate-x-1/2 flex gap-4 z-20">
         <button className="swiper-button-prev-custom cursor-pointer text-white bg-gray-800 bg-opacity-80 p-3 rounded-full text-2xl shadow-lg hover:bg-gray-700 transition-all">
-          ◀
+          <FiChevronLeft size={24} />
         </button>
         <button className="swiper-button-next-custom cursor-pointer text-white bg-gray-800 bg-opacity-80 p-3 rounded-full text-2xl shadow-lg hover:bg-gray-700 transition-all">
-          ▶
+          <FiChevronRight size={24} />
         </button>
       </div>
     </div>
