@@ -5,7 +5,6 @@ import connectDB from "./config/mongodb.js";
 import connectCloudinary from "./config/cloudinary.js";
 import userRouter from "./routes/userRoute.js";
 import productRouter from "./routes/productRoute.js";
-
 import reviewRouter from "./routes/reviewRoute.js"; // Import the review route
 
 // App Config
@@ -14,9 +13,18 @@ const port = process.env.PORT || 4000;
 connectDB();
 connectCloudinary();
 
+// CORS Configuration to allow your frontend
+app.use(
+  cors({
+    origin: ["https://www.fourthgearbd.com"], // Allow your frontend domain
+    methods: ["GET", "POST", "PUT", "DELETE"], // Allowed HTTP methods
+    allowedHeaders: ["Content-Type", "Authorization"], // Allowed headers
+    credentials: true, // Enable if using cookies or authentication
+  })
+);
+
 // Middlewares
 app.use(express.json());
-app.use(cors());
 
 // API Endpoints
 app.use("/api/user", userRouter);
