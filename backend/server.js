@@ -13,15 +13,21 @@ const port = process.env.PORT || 4000;
 connectDB();
 connectCloudinary();
 
-// CORS Configuration to allow your frontend
+// CORS Configuration to allow frontend and admin panel
 app.use(
   cors({
-    origin: ["https://www.fourthgearbd.com"], // Allow your frontend domain
+    origin: [
+      "https://www.fourthgearbd.com", // Main frontend domain
+      "https://fourthgear-admin.vercel.app" // Admin panel domain
+    ],
     methods: ["GET", "POST", "PUT", "DELETE"], // Allowed HTTP methods
     allowedHeaders: ["Content-Type", "Authorization"], // Allowed headers
     credentials: true, // Enable if using cookies or authentication
   })
 );
+
+// Handle preflight requests to avoid CORS errors
+app.options("*", cors());
 
 // Middlewares
 app.use(express.json());
